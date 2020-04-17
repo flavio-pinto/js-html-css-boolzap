@@ -10,6 +10,22 @@
     background: #ededed;
 }
 
+.dflex {
+    display: flex;
+}
+
+.fd-column {
+    flex-direction: column;
+}
+
+.jc-c {
+    justify-content: center;
+}
+
+.ai-c {
+    align-items: center
+}
+
 .basic-bar.bor-right {
     border-right: 1px solid #e0e0e0;
 }
@@ -18,9 +34,6 @@
 body {
     height: 100vh;
     font-family: 'Lato', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-image: linear-gradient(
         to bottom,
         #009687 0px,
@@ -31,7 +44,6 @@ body {
 }
 
 #app {
-    display: flex;
     width: 80%;
     min-width: 900px;
     height: 96%;
@@ -41,34 +53,81 @@ body {
 
 /* STYLES SIDEBAR */
 #sidebar {
-    display: flex;
-    flex-direction: column;
     width: 30%;
     height: 100%;
 }
 
-.sidebar-top {
-    display: flex;
-    flex-direction: column;
+.personal-icon-container {
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+.personal-icon-container img {
+    width: 100%;
 }
 
 .activate-notif-bar {
+    justify-content: flex-start;
     flex-basis: 70px;
     background: #8edafd;
+    padding: 10px;
+}
+
+.activate-notif-bar .bell-icon-container {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: #f2fbff;
+    color: #8edafd;
+    margin-right: 10px;
+}
+
+.notif-alert span {
+    font-size: 14px;
+    opacity: 0.7;
+    text-decoration: underline;
 }
 
 .search-bar {
+    align-content: center;
     flex-basis: 35px;
     background: #f7f7f7;
     border-bottom: 1px solid #dbdbdb;
+    padding: 5px;
+    opacity: 0.7;
+}
+
+.search-bar .search-btn {
+    background: white;
+    transform: translateY(7%);
+    flex-basis: 10%;
+    text-align: right;
+}
+
+.search-bar .search {
+    width: 100%;
+    border: none;
+    padding: 0 35px;
+}
+
+.search-bar .search:focus {
+    outline-offset: none;
+    outline: none;
+}
+
+.sidebar-select-chat {
+    overflow-y: scroll;
 }
 
 .conv-select {
-    height: 72px;
-    border-bottom: 1px solid #ebebeb;
     display: flex;
     align-items: center;
-    padding: 13px;
+    height: 72px;
+    border-bottom: 1px solid #ebebeb;
+    padding: 20px;
 }
 
 .conv-select.active {
@@ -81,16 +140,40 @@ body {
     border-radius: 50%;
     background: red;
     overflow: hidden;
+    margin-right: 20px;
 }
 
 .icon-container img {
     width: 100%;
 }
 
+.chat-info {
+    flex-grow: 1;
+}
+
+.chat-info .chat-info-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-info .chat-info-top .friend-name {
+    font-size: 17px;
+    display: inline-block;
+}
+
+.chat-info .last-msg-time,
+.chat-info .last-msg {
+    font-size: 12px;
+}
+
+.chat-info .last-msg,
+.chat-info .last-msg-time {
+    opacity: 0.7;
+}
+
 /* STYLES MAIN AREA */
 #main-area {
-    display: flex;
-    flex-direction: column;
     width: 70%;
     height: 100%;
     background-image: url('../img/mine.jpg');
