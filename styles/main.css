@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(
+        to bottom,
+        #009687 0px,
+        #009687 13.6vh,
+        #d7dbd6 13.6vh,
+        #d7dbd6 100%
+    )
+}
+
+#app {
+    display: flex;
+    width: 80%;
+    min-width: 900px;
+    height: 96%;
+    background: white;
+    box-shadow: 0 2px 2px 2px #c6c7c1;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+    background: beige;
+}
+
+#main-area {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+    background: gray;
+}
