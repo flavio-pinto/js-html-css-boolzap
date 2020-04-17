@@ -9,15 +9,27 @@
     <title>Boolzapp</title>
 </head>
 <body class="dflex jc-c ai-c">
-    <div id="app" class="dflex">
-        <div id="sidebar" class="dflex fd-column">
+    <!-- APP -->
+    <main id="app" class="dflex">
+
+        <!-- SIDEBAR -->
+        <div id="sidebar" class="dflex fd-column h-100">
+
+            <!-- SIDEBAR TOP -->
             <div class="sidebar-top dflex fd-column">
-                <div class="basic-bar bor-right dflex ai-c">
-                    <div class="personal-icon-container">
-                        <img src="img/avatar_io.jpg" alt="my icon">
+                <div class="basic-bar bor-right dflex ai-c jc-sb">
+                    <div class="user-icon-container">
+                        <img class="w-100" src="img/avatar_io.jpg" alt="my icon">
+                    </div>
+
+                    <div class="utilities op-05">
+                        <i class="fas fa-circle-notch op-05 pointer"></i>
+                        <i class="fas fa-comment-alt op-05 pointer"></i>
+                        <i class="fas fa-ellipsis-v op-05 pointer"></i>
                     </div>
                 </div>
 
+                <!-- Barra richiesta attivazione notifiche -->
                 <div class="activate-notif-bar dflex ai-c">
                     <div class="bell-icon-container dflex jc-c ai-c">
                         <i class="fas fa-bell-slash"></i>
@@ -25,139 +37,209 @@
 
                     <div class="notif-alert">
                         <h4>Ricevi notifiche di nuovi messaggi</h4>
-                        <span>Attiva notifiche desktop</span>
+                        <span class="op-05 pointer fsz-14">Attiva notifiche desktop</span>
                     </div>
                 </div>
 
-                <div class="search-bar dflex jc-c">
-                    <div class="search-btn"><i class="fas fa-search"></i></div>
-                    <input class="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                <!-- Barra di ricerca -->
+                <div class="search-bar dflex jc-c op-05">
+                    <div class="search-btn op-05"><i class="fas fa-search"></i></div>
+                    <input class="search w-100" type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
             </div>
 
-            <div class="sidebar-select-chat">
-                <div class="conv-select active">
-                    <div class="icon-container">
-                        <img src="img/avatar_1.jpg" alt="icona michele">
-                    </div>
-                    <div class="chat-info">
-                        <div class="chat-info-top">
-                            <h4 class="friend-name">Michele</h4>
-                            <span class="last-msg-time">17.53</span>
+            <!-- SIDEBAR CHATS -->
+            <ul class="sidebar-select-chat">
+                <li>
+                    <div class="conv-select pointer active">
+                        <div class="icon-container">
+                            <img class="w-100" src="img/avatar_1.jpg" alt="icona michele">
                         </div>
-                        <span class="last-msg">Non poteva essere altrimenti</span>
+                        <div class="chat-info">
+                            <div class="chat-info-top">
+                                <h4 class="friend-name">Michele</h4>
+                                <span class="last-msg-time">17.53</span>
+                            </div>
+                            <span class="last-msg">Non poteva essere altrimenti</span>
+                        </div>
                     </div>
+                </li>
+
+                <li>
+                    <div class="conv-select pointer">
+                        <div class="icon-container">
+                            <img class="w-100" src="img/avatar_2.jpg" alt="icona fabio">
+                        </div>
+                        <div class="chat-info">
+                            <div class="chat-info-top">
+                                <h4 class="friend-name">Fabio</h4>
+                                <span class="last-msg-time">17.53</span>
+                            </div>
+                            <span class="last-msg">Non poteva essere altrimenti</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="conv-select pointer">
+                        <div class="icon-container">
+                            <img class="w-100" src="img/avatar_3.jpg" alt="icona samuele">
+                        </div>
+                        <div class="chat-info">
+                            <div class="chat-info-top">
+                                <h4 class="friend-name">Samuele</h4>
+                                <span class="last-msg-time">17.53</span>
+                            </div>
+                            <span class="last-msg">Non poteva essere altrimenti</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="conv-select pointer">
+                        <div class="icon-container">
+                            <img class="w-100" src="img/avatar_4.jpg" alt="icona alessandro b.">
+                        </div>
+                        <div class="chat-info">
+                            <div class="chat-info-top">
+                                <h4 class="friend-name">Alessandro B.</h4>
+                                <span class="last-msg-time">17.53</span>
+                            </div>
+                            <span class="last-msg">Non poteva essere altrimenti</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="conv-select pointer">
+                        <div class="icon-container">
+                            <img class="w-100" src="img/avatar_5.jpg" alt="icona alessandro l.">
+                        </div>
+                        <div class="chat-info">
+                            <div class="chat-info-top">
+                                <h4 class="friend-name">Alessandro L.</h4>
+                                <span class="last-msg-time">17.53</span>
+                            </div>
+                            <span class="last-msg">Non poteva essere altrimenti</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="conv-select pointer">
+                        <div class="icon-container">
+                            <img class="w-100" src="img/avatar_6.jpg" alt="icona claudia">
+                        </div>
+                        <div class="chat-info">
+                            <div class="chat-info-top">
+                                <h4 class="friend-name">Claudia</h4>
+                                <span class="last-msg-time">17.53</span>
+                            </div>
+                            <span class="last-msg">Non poteva essere altrimenti</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="conv-select pointer">
+                        <div class="icon-container">
+                            <img class="w-100" src="img/avatar_7.jpg" alt="icona davide">
+                        </div>
+                        <div class="chat-info">
+                            <div class="chat-info-top">
+                                <h4 class="friend-name">Davide</h4>
+                                <span class="last-msg-time">17.53</span>
+                            </div>
+                            <span class="last-msg">Non poteva essere altrimenti</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="conv-select pointer">
+                        <div class="icon-container">
+                            <img class="w-100" src="img/avatar_8.jpg" alt="icona federico">
+                        </div>
+                        <div class="chat-info">
+                            <div class="chat-info-top">
+                                <h4 class="friend-name">Federico</h4>
+                                <span class="last-msg-time">17.53</span>
+                            </div>
+                            <span class="last-msg">Non poteva essere altrimenti</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- MAIN AREA -->
+        <div id="main-area" class="dflex fd-column h-100">
+            <div class="basic-bar dflex ai-c">
+                <div class="user-icon-container">
+                    <img class="w-100" src="img/avatar_1.jpg" alt="my icon">
+                </div>
+                
+                <!-- MAIN AREA TOP BAR -->
+                <div class="chat-info">
+                    <div class="chat-info-top">
+                        <h4 class="friend-name">Michele</h4>
+                    </div>
+                    <span class="last-msg">Ultimo accesso oggi alle 15.40</span>
                 </div>
 
-                <div class="conv-select">
-                    <div class="icon-container">
-                        <img src="img/avatar_2.jpg" alt="icona fabio">
-                    </div>
-                    <div class="chat-info">
-                        <div class="chat-info-top">
-                            <h4 class="friend-name">Fabio</h4>
-                            <span class="last-msg-time">17.53</span>
-                        </div>
-                        <span class="last-msg">Non poteva essere altrimenti</span>
-                    </div>
+                <div class="utilities op-05">
+                    <i class="fas fa-search op-05 pointer"></i>
+                    <i class="fas fa-paperclip op-05 pointer"></i>
+                    <i class="fas fa-ellipsis-v op-05 pointer"></i>
+                </div>
+            </div>
+
+            <!-- MESSAGES AREA -->
+            <div class="messages-area dflex fd-column grow-1">
+                <ul class="messages-list dflex fd-column w-100">
+                    <li class="my-message dflex">
+                        <span class="text grow-1 fsz-14">Ciao come stai?</span>
+                        <span class="time">06:20</span>
+                    </li>
+                    <li class="bot-message dflex">
+                        <span class="text grow-1 fsz-14">Ciao come stai?</span>
+                        <span class="time">14:21</span>
+                    </li>
+                    <li class="my-message dflex">
+                        <span class="text grow-1 fsz-14">Ciao come stai?</span>
+                        <span class="time">21:41</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- BOTTOM BAR -->
+            <div class="basic-bar dflex jc-c ai-c op-05">
+                <div class="emoji-menu dflex jc-c">
+                    <i class="far fa-smile pointer"></i>
                 </div>
 
-                <div class="conv-select">
-                    <div class="icon-container">
-                        <img src="img/avatar_3.jpg" alt="icona samuele">
-                    </div>
-                    <div class="chat-info">
-                        <div class="chat-info-top">
-                            <h4 class="friend-name">Samuele</h4>
-                            <span class="last-msg-time">17.53</span>
-                        </div>
-                        <span class="last-msg">Non poteva essere altrimenti</span>
-                    </div>
-                </div>
+                <input class="msg-input grow-1" type="text" placeholder="Scrivi un messaggio">
 
-                <div class="conv-select">
-                    <div class="icon-container">
-                        <img src="img/avatar_4.jpg" alt="icona alessandro b.">
-                    </div>
-                    <div class="chat-info">
-                        <div class="chat-info-top">
-                            <h4 class="friend-name">Alessandro B.</h4>
-                            <span class="last-msg-time">17.53</span>
-                        </div>
-                        <span class="last-msg">Non poteva essere altrimenti</span>
-                    </div>
-                </div>
-
-                <div class="conv-select">
-                    <div class="icon-container">
-                        <img src="img/avatar_5.jpg" alt="icona alessandro l.">
-                    </div>
-                    <div class="chat-info">
-                        <div class="chat-info-top">
-                            <h4 class="friend-name">Alessandro L.</h4>
-                            <span class="last-msg-time">17.53</span>
-                        </div>
-                        <span class="last-msg">Non poteva essere altrimenti</span>
-                    </div>
-                </div>
-
-                <div class="conv-select">
-                    <div class="icon-container">
-                        <img src="img/avatar_6.jpg" alt="icona claudia">
-                    </div>
-                    <div class="chat-info">
-                        <div class="chat-info-top">
-                            <h4 class="friend-name">Claudia</h4>
-                            <span class="last-msg-time">17.53</span>
-                        </div>
-                        <span class="last-msg">Non poteva essere altrimenti</span>
-                    </div>
-                </div>
-
-                <div class="conv-select">
-                    <div class="icon-container">
-                        <img src="img/avatar_7.jpg" alt="icona davide">
-                    </div>
-                    <div class="chat-info">
-                        <div class="chat-info-top">
-                            <h4 class="friend-name">Davide</h4>
-                            <span class="last-msg-time">17.53</span>
-                        </div>
-                        <span class="last-msg">Non poteva essere altrimenti</span>
-                    </div>
-                </div>
-
-                <div class="conv-select">
-                    <div class="icon-container">
-                        <img src="img/avatar_8.jpg" alt="icona federico">
-                    </div>
-                    <div class="chat-info">
-                        <div class="chat-info-top">
-                            <h4 class="friend-name">Federico</h4>
-                            <span class="last-msg-time">17.53</span>
-                        </div>
-                        <span class="last-msg">Non poteva essere altrimenti</span>
-                    </div>
+                <div class="send-msg dflex jc-c">
+                    <i class="fas fa-microphone pointer"></i>
+                    <i class="fas fa-paper-plane pointer"></i>
                 </div>
             </div>
         </div>
-
-        <div id="main-area" class="dflex fd-column">
-            <div class="basic-bar">
-
-            </div>
-
-            <div class="messages-area">
-
-            </div>
-
-            <div class="basic-bar">
-
-            </div>
-        </div>
-    </div>
+    </main>
 
     <!-- TEMPLATES -->
+    <!-- Template messaggi -->
+    <div class="template-message">
+        <li class="my-message dflex">
+            <span class="text grow-1 fsz-14"></span>
+            <span class="time">06:20</span>
+        </li>
+        <li class="bot-message dflex">
+            <span class="text grow-1 fsz-14"></span>
+            <span class="time">14:21</span>
+        </li>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/main.js"></script>
