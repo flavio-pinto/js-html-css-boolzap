@@ -79,6 +79,10 @@ li {
     cursor: pointer;
 }
 
+.d-none {
+    display: none; /* <------- JQuery*/
+}
+
 /* STYLES */
 body {
     height: 100vh;
@@ -210,40 +214,40 @@ body {
     justify-content: flex-end;
 }
 
-.messages-list .my-message {
+#messages-list #my-message {
     align-self: flex-end;
     background: #dcf8c6;
 }
 
-.messages-list .bot-message {
+#messages-list #bot-message {
     align-self: flex-start;
     background: white;
 }
 
-.messages-list .my-message,
-.messages-list .bot-message {
+#messages-list #my-message,
+#messages-list #bot-message {
     border-radius: 8px;
     max-width: 70%;
     position: relative;
+    margin-bottom: 10px;
 }
 
-.messages-list .my-message .text,
-.messages-list .bot-message .text {
+#messages-list #my-message #text,
+#messages-list #bot-message #text {
     max-width: 100%;
     margin-right: 15px;
     font-weight: 700;
     padding: 10px 10px 15px;
 }
 
-.messages-list .my-message .time,
-.messages-list .bot-message .time {
+#messages-list #my-message .time,
+#messages-list #bot-message .time {
     position: absolute;
     bottom: 3px;
     right: 3px;
     font-size: 8px;
     opacity: 0.5;
     flex-basis: 20px;
-    /* align-self: flex-end; */
     margin-top: 3px;
     margin-left: 3px;
 }
@@ -254,21 +258,12 @@ body {
     font-size: 20px;
 }
 
-.send-msg i:last-child {
-    display: none; /* <------- JQuery*/
-}
-
-.basic-bar .msg-input {
+.basic-bar #msg-input {
     height: 40px;
     padding: 0 10px;
     background-color: white;
 }
 
-.basic-bar .msg-input:focus {
+.basic-bar #msg-input:focus {
     outline: 4px solid royalblue;
-}
-
-/* TEMPLATE HIDE */
-.template-message {
-    display: none; /* <------- JQuery*/
 }

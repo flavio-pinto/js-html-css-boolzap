@@ -196,17 +196,17 @@
 
             <!-- MESSAGES AREA -->
             <div class="messages-area dflex fd-column grow-1">
-                <ul class="messages-list dflex fd-column w-100">
-                    <li class="my-message dflex">
-                        <span class="text grow-1 fsz-14">Ciao come stai?</span>
+                <ul id="messages-list" class="dflex fd-column w-100">
+                    <li id="my-message" class="dflex">
+                        <span id="text" class="grow-1 fsz-14">Ciao come stai?</span>
                         <span class="time">06:20</span>
                     </li>
-                    <li class="bot-message dflex">
-                        <span class="text grow-1 fsz-14">Ciao come stai?</span>
+                    <li id="bot-message" class="dflex">
+                        <span id="text" class="grow-1 fsz-14">Ciao come stai?</span>
                         <span class="time">14:21</span>
                     </li>
-                    <li class="my-message dflex">
-                        <span class="text grow-1 fsz-14">Ciao come stai?</span>
+                    <li id="my-message" class="dflex">
+                        <span id="text" class="grow-1 fsz-14">Ciao come stai?</span>
                         <span class="time">21:41</span>
                     </li>
                 </ul>
@@ -218,11 +218,11 @@
                     <i class="far fa-smile pointer"></i>
                 </div>
 
-                <input class="msg-input grow-1" type="text" placeholder="Scrivi un messaggio">
+                <input id="msg-input" class="grow-1" type="text" placeholder="Scrivi un messaggio">
 
                 <div class="send-msg dflex jc-c">
                     <i class="fas fa-microphone pointer"></i>
-                    <i class="fas fa-paper-plane pointer"></i>
+                    <i class="fas fa-paper-plane pointer d-none"></i>
                 </div>
             </div>
         </div>
@@ -230,14 +230,10 @@
 
     <!-- TEMPLATES -->
     <!-- Template messaggi -->
-    <div class="template-message">
-        <li class="my-message dflex">
-            <span class="text grow-1 fsz-14"></span>
+    <div id="template-message" class="d-none">
+        <li id="my-message" class="dflex">
+            <span id="text" class="grow-1 fsz-14"></span>
             <span class="time">06:20</span>
-        </li>
-        <li class="bot-message dflex">
-            <span class="text grow-1 fsz-14"></span>
-            <span class="time">14:21</span>
         </li>
     </div>
 
