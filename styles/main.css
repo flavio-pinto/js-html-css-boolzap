@@ -10,6 +10,10 @@
     background: #ededed;
 }
 
+.basic-bar.bor-right {
+    border-right: 1px solid #e0e0e0;
+}
+
 /* STYLES */
 body {
     height: 100vh;
@@ -62,10 +66,25 @@ body {
 .conv-select {
     height: 72px;
     border-bottom: 1px solid #ebebeb;
+    display: flex;
+    align-items: center;
+    padding: 13px;
 }
 
 .conv-select.active {
     background-color: #ebebeb;
+}
+
+.icon-container {
+    height: 49px;
+    width: 49px;
+    border-radius: 50%;
+    background: red;
+    overflow: hidden;
+}
+
+.icon-container img {
+    width: 100%;
 }
 
 /* STYLES MAIN AREA */
