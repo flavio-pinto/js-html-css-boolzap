@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+/* UTILITIES */
+.basic-bar {
+    flex-basis: 60px;
+    background: #ededed;
+}
+
+/* STYLES */
 body {
     height: 100vh;
     font-family: 'Lato', sans-serif;
@@ -28,18 +35,48 @@ body {
     box-shadow: 0 2px 2px 2px #c6c7c1;
 }
 
+/* STYLES SIDEBAR */
 #sidebar {
     display: flex;
     flex-direction: column;
     width: 30%;
     height: 100%;
-    background: beige;
 }
 
+.sidebar-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.activate-notif-bar {
+    flex-basis: 70px;
+    background: #8edafd;
+}
+
+.search-bar {
+    flex-basis: 35px;
+    background: #f7f7f7;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.conv-select {
+    height: 72px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.conv-select.active {
+    background-color: #ebebeb;
+}
+
+/* STYLES MAIN AREA */
 #main-area {
     display: flex;
     flex-direction: column;
     width: 70%;
     height: 100%;
-    background: gray;
+    background-image: url('../img/mine.jpg');
+}
+
+.messages-area {
+    flex-grow: 1;
 }
