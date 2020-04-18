@@ -155,7 +155,7 @@ body {
 }
 
 .sidebar-select-chat {
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .conv-select {
@@ -230,6 +230,7 @@ body {
     max-width: 70%;
     position: relative;
     margin-bottom: 10px;
+    word-wrap: break-word;
 }
 
 #messages-list #my-message #text,

@@ -1,34 +1,46 @@
 $(document).ready(function () {
-    // Refs
+    // Referenze
     var messageList = $('#messages-list');
     var messageBar = $('#msg-input');
-    var sendMsgButton = $('.send-msg .fas.fa-paper-plane');
-    var micButton = $('.send-msg .fas.fa-microphone');
-    var textMsg = $('#template-message #my-message #text');
+    var chatButton = $('.send-msg .fas.fa-microphone');
+    var templateTxt = $('#template-message #my-message #text');
+    var templateMsg = $('#template-message li');
 
-    // Creo script per barra invio testo
+    // Rendo il pulsante aeroplanino funzionante
+    chatButton.click(newMessage);
+
+    // Creo variabile per cambio icona
+    var changeChatButton;
+    
+    // Eventi e condizioni per far sì che il messaggio venga inviato e l'icona cambi o meno
     messageBar.keyup(function(event) {
-        if(event.which == 13) {
-            var newMsg = messageBar.val().trim();
+        if((event.which == 13) && (messageBar.val() !== null) && (messageBar.val().trim() !== '')) {
+            newMessage();
+            changeChatButton = false;
+        } else if ((event.which > 47 && event.which < 58) || // numeri
+        (event.which > 64 && event.which < 91) || // lettere
+        (event.which > 95 && event.which < 112) || // numeri del numpad
+        (event.which > 185 && event.which < 193) || // punteggiatura
+        (event.which > 218 && event.which < 223)) { // altra punteggiatura
+            changeChatButton = true;
+        } else {
+            changeChatButton = false;
+        }
 
-            if (newMsg !== '') {
-                textMsg.prepend(newMsg);
-                var sendNewMsg = $('#template-message li').clone();
-                messageList.append(sendNewMsg);
-                messageBar.val('');
-                textMsg.text('');
-            } else {
-                alert('Non puoi inviare messaggio vuoto')
-            }
+        if(changeChatButton == true) {
+            chatButton.removeClass('fa-microphone').addClass('fa-paper-plane');
+        } else if(changeChatButton == false && messageBar.val() == null || messageBar.val().trim() == '') {
+            chatButton.removeClass('fa-paper-plane').addClass('fa-microphone');
         }
     });
 
-    // Rendo funzionante pulsante invio col click
-    messageBar.click(function() {
-        micButton.addClass('d-none');
-        sendMsgButton.removeClass('d-none');
-    });
-
-    
-
+    // Creo funzione per permettere di clonare il template, inserire il testo desiderato e aggiungerlo all'area messaggi
+    function newMessage() {
+        var getText = messageBar.val().trim();
+        templateTxt.prepend(getText);
+        var updatedTemplate = templateMsg.clone();
+        messageList.append(updatedTemplate);
+        messageBar.val('');
+        templateTxt.text('');
+    }
 }); // end ready method
