@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // Referenze
+    // Creo Referenze
     var messageList = $('#messages-list');
     var messageBar = $('#msg-input');
     var chatButton = $('.send-msg .fas.fa-microphone');
@@ -23,6 +23,9 @@ $(document).ready(function () {
         (event.which > 185 && event.which < 193) || // punteggiatura
         (event.which > 218 && event.which < 223)) { // altra punteggiatura
             changeChatButton = true;
+        } else if (messageBar.val() == null || messageBar.val().trim() == '') {
+            messageBar.val('');
+            changeChatButton = false;
         } else {
             changeChatButton = false;
         }
