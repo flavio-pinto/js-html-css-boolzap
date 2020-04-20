@@ -118,7 +118,7 @@ $(document).ready(function () {
         conversation.each(function() {
             var found = false;
             $(this).each(function() {
-                if($(this).children(friendName).text().trim().toLowerCase().indexOf(e.toLowerCase()) >= 0) {
+                if($(this).find(friendName).text().trim().toLowerCase().indexOf(e.toLowerCase()) >= 0) {
                     found = true;
                 }
             });
