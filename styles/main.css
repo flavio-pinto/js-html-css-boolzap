@@ -24,6 +24,7 @@ li {
 .basic-bar {
     flex-basis: 60px;
     background: #ededed;
+    flex-shrink: 0;
 }
 
 .dflex {
@@ -212,20 +213,20 @@ body {
     padding: 0 100px 15px;
     background-image: url('../img/mine.jpg');
     justify-content: flex-end;
+    overflow-y: auto;
 }
 
-#messages-list #my-message {
+#messages-list .message.sent {
     align-self: flex-end;
     background: #dcf8c6;
 }
 
-#messages-list #bot-message {
+#messages-list .message.received {
     align-self: flex-start;
     background: white;
 }
 
-#messages-list #my-message,
-#messages-list #bot-message {
+#messages-list .message {
     border-radius: 8px;
     max-width: 70%;
     position: relative;
@@ -233,16 +234,14 @@ body {
     word-wrap: break-word;
 }
 
-#messages-list #my-message #text,
-#messages-list #bot-message #text {
+#messages-list .message .text{
     max-width: 100%;
     margin-right: 15px;
     font-weight: 700;
     padding: 10px 10px 15px;
 }
 
-#messages-list #my-message .time,
-#messages-list #bot-message .time {
+#messages-list .message .time {
     position: absolute;
     bottom: 3px;
     right: 3px;

@@ -3,8 +3,8 @@ $(document).ready(function () {
     var messageList = $('#messages-list');
     var messageBar = $('#msg-input');
     var chatButton = $('.send-msg .fas.fa-microphone');
-    var templateTxt = $('#template-message #my-message #text');
-    var templateMsg = $('#template-message li');
+    var templateTxt = $('.template-message .message.sent .text');
+    var templateMsg = $('.template-message li');
 
     // Rendo il pulsante aeroplanino funzionante
     chatButton.click(newMessage);
