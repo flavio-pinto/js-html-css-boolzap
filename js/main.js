@@ -58,6 +58,11 @@ $(document).ready(function () {
         } else if(changeChatButton == false && messageBar.val() == null || messageBar.val().trim() == '') {
             chatButton.removeClass('fa-paper-plane').addClass('fa-microphone');
         }
+
+        $('body').on('focus blur', '#msg-input', function() {
+            chatButton.removeClass('fa-microphone').addClass('fa-paper-plane');
+            chatButton.removeClass('fa-paper-plane').addClass('fa-microphone');
+        });
     });
 
     // Rendere funzionante la barra di ricerca delle conversazioni
