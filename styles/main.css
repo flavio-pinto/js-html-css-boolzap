@@ -210,10 +210,14 @@ body {
 }
 
 .messages-area {
-    padding: 0 100px 15px;
     background-image: url('../img/mine.jpg');
     justify-content: flex-end;
     overflow-y: auto;
+}
+
+#messages-list {
+    overflow-y: auto;
+    padding: 0 100px;
 }
 
 #messages-list .message.sent {

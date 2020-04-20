@@ -37,6 +37,7 @@ $(document).ready(function () {
             newMessage();
             changeChatButton = false;
 
+            // Messaggio bot
             botMsg = setTimeout(function(){
                 generateBotMsg();
             }, 1000);
