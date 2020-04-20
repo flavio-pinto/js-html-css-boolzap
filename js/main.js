@@ -1,9 +1,21 @@
+/**
+ * Milestone 1
+ * Replica della grafica (allegata sotto con gli assets) con la possibilità di avere messaggi stilati e posizionati diversamente in base a: messaggio  dall’utente (verdi) e messaggio dall’interlocutore (bianco) assegnando due classi CSS diverse
+ * Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e cliccando icona ‘invia il testo’ viene aggiunto al thread sopra, come messaggio verde (ricordate focus() )
+ * Messaggi visibili inizialmente sono inseriti statici nell’HTML
+ * Usate un template nell’html e clone() per l’ inserimento del messaggio da fare in JS
+ * Milestone 2
+ * Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
+ * Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
+ * Ricordate che c’è un metodo includes()  anche per le stringhe oltre che per gli array.
+ */
+
 $(document).ready(function () {
     // Creo Referenze
     var messageList = $('#messages-list');
     var messageBar = $('#msg-input');
     var chatButton = $('.send-msg .fas.fa-microphone');
-    var templateTxt = $('.template-message .message.sent .text');
+    var templateTxt = $('.template-message .message .text');
     var templateMsg = $('.template-message li');
 
     // Rendo il pulsante aeroplanino funzionante
@@ -40,6 +52,7 @@ $(document).ready(function () {
     // Creo funzione per permettere di clonare il template, inserire il testo desiderato e aggiungerlo all'area messaggi
     function newMessage() {
         var getText = messageBar.val().trim();
+        templateMsg.addClass('sent');
         templateTxt.prepend(getText);
         var updatedTemplate = templateMsg.clone();
         messageList.append(updatedTemplate);
