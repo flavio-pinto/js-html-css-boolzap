@@ -12,6 +12,9 @@
 
 $(document).ready(function () {
     // Creo Referenze
+    var searchBar = $('#search');
+    var conversation = $('.sidebar-select-chat li');
+    var friendName = $('.friend-name');
     var messageList = $('#messages-list');
     var messageBar = $('#msg-input');
     var chatButton = $('.send-msg .fas.fa-microphone');
@@ -23,7 +26,7 @@ $(document).ready(function () {
     chatButton.click(newMessage);
 
     // Creo variabile messaggio bot
-    var msgBot;
+    var botMsg;
 
     // Creo variabile per cambio icona
     var changeChatButton;
@@ -55,6 +58,11 @@ $(document).ready(function () {
         } else if(changeChatButton == false && messageBar.val() == null || messageBar.val().trim() == '') {
             chatButton.removeClass('fa-paper-plane').addClass('fa-microphone');
         }
+    });
+
+    // Rendere funzionante la barra di ricerca delle conversazioni
+    searchBar.keyup(function() {
+        hideWhenSearch($(this).val());
     });
 
     // Creo funzione per permettere di clonare il template, inserire il testo desiderato e aggiungerlo all'area messaggi
@@ -91,10 +99,29 @@ $(document).ready(function () {
         return time;
     }
 
+    // Aggiungere zero in caso nell'orario è presente un numero a una cifra
     function addZero(number) {
         if(number < 10) {
             number = '0' + number;
         }
         return number;
+    }
+
+    // Funzione per nascondere elementi non corrispondenti alla ricerca
+    function hideWhenSearch(e) {
+        conversation.each(function() {
+            var found = false;
+            $(this).each(function() {
+                if($(this).children(friendName).text().trim().toLowerCase().indexOf(e.toLowerCase()) >= 0) {
+                    found = true;
+                }
+            });
+            
+            if(found == true) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
     }
 }); // end ready method
