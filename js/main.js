@@ -16,10 +16,14 @@ $(document).ready(function () {
     var messageBar = $('#msg-input');
     var chatButton = $('.send-msg .fas.fa-microphone');
     var templateTxt = $('.template-message .message .text');
+    var templateTime = $('.template-message .message .time');
     var templateMsg = $('.template-message li');
 
     // Rendo il pulsante aeroplanino funzionante
     chatButton.click(newMessage);
+
+    // Creo variabile messaggio bot
+    var msgBot;
 
     // Creo variabile per cambio icona
     var changeChatButton;
@@ -29,6 +33,10 @@ $(document).ready(function () {
         if((event.which == 13) && (messageBar.val() !== null) && (messageBar.val().trim() !== '')) {
             newMessage();
             changeChatButton = false;
+
+            botMsg = setTimeout(function(){
+                generateBotMsg();
+            }, 1000);
         } else if ((event.which > 47 && event.which < 58) || // numeri
         (event.which > 64 && event.which < 91) || // lettere
         (event.which > 95 && event.which < 112) || // numeri del numpad
@@ -54,9 +62,39 @@ $(document).ready(function () {
         var getText = messageBar.val().trim();
         templateMsg.addClass('sent');
         templateTxt.prepend(getText);
+        templateTime.prepend(getTime);
         var updatedTemplate = templateMsg.clone();
         messageList.append(updatedTemplate);
         messageBar.val('');
         templateTxt.text('');
+        templateTime.text('');
+    }
+
+    // Funzione messaggio bot
+    function generateBotMsg() {
+        var msgBot = templateMsg.addClass('received');
+        var botTxt = templateTxt.text('ok');
+        templateTime.prepend(getTime);
+        var updatedMsgBot = msgBot.clone();
+        messageList.append(updatedMsgBot);
+        botTxt.text('');
+        msgBot.removeClass('received');
+        templateTime.text('');
+    }
+
+    // Funzione orario
+    function getTime() {
+        var date = new Date();
+        var h = addZero(date.getHours());
+        var min = addZero(date.getMinutes());
+        var time = h + ':' + min;
+        return time;
+    }
+
+    function addZero(number) {
+        if(number < 10) {
+            number = '0' + number;
+        }
+        return number;
     }
 }); // end ready method
