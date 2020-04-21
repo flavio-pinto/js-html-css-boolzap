@@ -86,12 +86,11 @@ $(document).ready(function () {
         hideWhenSearch($(this).val());
     });
 
-    // Attivare dropdown menu per i messaggi
+    // Attivare dropdown menu per i messaggi farli scomparire al click di un altro bottone del dropdown
     var dropDown = $('#messages-list .message .msg-dropdown-menu');
     var dropDownButton = $('#messages-list .message i')
     dropDownButton.click(function() {
         var activeDropDownMenu = $(this).parent().children(dropDown);
-        // $(this).parent().children(dropDown).toggleClass('active-menu');
         dropDown.not(activeDropDownMenu).removeClass('active-menu');
         activeDropDownMenu.toggleClass('active-menu');
     });
