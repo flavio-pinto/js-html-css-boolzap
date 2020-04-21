@@ -8,6 +8,9 @@
  * Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
  * Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
  * Ricordate che c’è un metodo includes()  anche per le stringhe oltre che per gli array.
+ * Mileston 3 (opzionale)
+ * Click sul contatto mostra la conversazione del contatto cliccato, è possibile inserire nuovi messaggi per ogni conversazione
+ * Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
  */
 
 $(document).ready(function () {
@@ -15,12 +18,24 @@ $(document).ready(function () {
     var searchBar = $('#search');
     var conversation = $('.sidebar-select-chat li');
     var friendName = $('.friend-name');
-    var messageList = $('#messages-list');
+    var messageList = $('#messages-list.dflex');
     var messageBar = $('#msg-input');
     var chatButton = $('.send-msg .fas.fa-microphone');
     var templateTxt = $('.template-message .message .text');
     var templateTime = $('.template-message .message .time');
     var templateMsg = $('.template-message li');
+
+    // Consentire selezione chat
+    conversation.click(function() {
+        $(this).children().addClass('active');
+        $(this).siblings().children().removeClass('active');
+        var msgData = $(this).attr('data-conversation');
+        // reset
+        $('#messages-list.dflex').removeClass('dflex');
+        // Show active
+        $('#messages-list[data-conversation="' + msgData + '"]').addClass('dflex');
+        messageList = $('#messages-list.dflex');
+    });
 
     // Rendo il pulsante aeroplanino funzionante
     chatButton.click(newMessage);
@@ -71,6 +86,8 @@ $(document).ready(function () {
         hideWhenSearch($(this).val());
     });
 
+
+    // FUNZIONI
     // Creo funzione per permettere di clonare il template, inserire il testo desiderato e aggiungerlo all'area messaggi
     function newMessage() {
         var getText = messageBar.val().trim();
@@ -107,7 +124,7 @@ $(document).ready(function () {
         return time;
     }
 
-    // Aggiungere zero in caso nell'orario è presente un numero a una cifra
+    // Funzione per ggiungere zero in caso nell'orario è presente un numero a una cifra
     function addZero(number) {
         if(number < 10) {
             number = '0' + number;
