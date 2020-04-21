@@ -211,13 +211,12 @@ body {
 
 .messages-area {
     background-image: url('../img/mine.jpg');
-    justify-content: flex-end;
     overflow-y: auto;
 }
 
 #messages-list {
-    overflow-y: auto;
     padding: 0 100px;
+    margin-top: auto;
 }
 
 #messages-list .message.sent {

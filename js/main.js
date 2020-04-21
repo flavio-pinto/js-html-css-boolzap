@@ -82,6 +82,7 @@ $(document).ready(function () {
         messageBar.val('');
         templateTxt.text('');
         templateTime.text('');
+        autoScrollDown();
     }
 
     // Funzione messaggio bot
@@ -94,6 +95,7 @@ $(document).ready(function () {
         botTxt.text('');
         msgBot.removeClass('received');
         templateTime.text('');
+        autoScrollDown();
     }
 
     // Funzione orario
@@ -118,7 +120,7 @@ $(document).ready(function () {
         conversation.each(function() {
             var found = false;
             $(this).each(function() {
-                if($(this).find(friendName).text().trim().toLowerCase().indexOf(e.toLowerCase()) >= 0) {
+                if($(this).find(friendName).text().toLowerCase().indexOf(e.toLowerCase()) >= 0) {
                     found = true;
                 }
             });
@@ -129,5 +131,13 @@ $(document).ready(function () {
                 $(this).hide();
             }
         });
+    }
+
+    // Funzione per scroll automatico in basso
+    function autoScrollDown() {
+        var autoScroll = messageList.height();
+        $('.messages-area').animate({
+            scrollTop: autoScroll
+        }, 1);
     }
 }); // end ready method
