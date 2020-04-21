@@ -90,13 +90,27 @@ $(document).ready(function () {
     var dropDown = $('#messages-list .message .msg-dropdown-menu');
     var dropDownButton = $('#messages-list .message i')
     dropDownButton.click(function() {
-        $(this).parent().children(dropDown).toggleClass('active-menu');
+        var activeDropDownMenu = $(this).parent().children(dropDown);
+        // $(this).parent().children(dropDown).toggleClass('active-menu');
+        dropDown.not(activeDropDownMenu).removeClass('active-menu');
+        activeDropDownMenu.toggleClass('active-menu');
     });
 
     // Rendere funzionante pulsante "Cancella messaggio"
     var deleteMsg = $('#messages-list .message .msg-dropdown-menu li:last-child');
     deleteMsg.click(function() {
         $(this).parent().parent().remove();
+    });
+
+    // Far scomparire dropdown menu al click in qualsiasi altro punto della web app
+    dropDownButton.click(function(event) {
+        event.stopPropagation();
+    });
+
+    $('#app').click(function(e) {
+        if(dropDownButton !== e.target && !dropDownButton.has(e.target).length) {
+            dropDown.removeClass('active-menu');
+        }
     });
 
 
