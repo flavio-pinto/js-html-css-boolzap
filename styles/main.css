@@ -290,8 +290,11 @@ body {
 }
 
 .msg-dropdown-menu li {
-    text-decoration: underline;
     cursor: pointer;
+}
+
+.msg-dropdown-menu li:hover {
+    opacity: 0.5;
 }
 
 .msg-dropdown-menu li:first-child {
