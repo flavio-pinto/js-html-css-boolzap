@@ -86,6 +86,19 @@ $(document).ready(function () {
         hideWhenSearch($(this).val());
     });
 
+    // Attivare dropdown menu per i messaggi
+    var dropDown = $('#messages-list .message .msg-dropdown-menu');
+    var dropDownButton = $('#messages-list .message i')
+    dropDownButton.click(function() {
+        $(this).parent().children(dropDown).toggleClass('active-menu');
+    });
+
+    // Rendere funzionante pulsante "Cancella messaggio"
+    var deleteMsg = $('#messages-list .message .msg-dropdown-menu li:last-child');
+    deleteMsg.click(function() {
+        $(this).parent().parent().remove();
+    });
+
 
     // FUNZIONI
     // Creo funzione per permettere di clonare il template, inserire il testo desiderato e aggiungerlo all'area messaggi

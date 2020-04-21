@@ -249,6 +249,19 @@ body {
     padding: 10px 10px 15px;
 }
 
+.message i {
+    position: absolute;
+    top: 1px;
+    right: 2px;
+    opacity: 0.3;
+    display: none;
+    cursor: pointer;
+}
+
+.message:hover i {
+    display: inline-block;
+}
+
 #messages-list .message .time {
     position: absolute;
     bottom: 3px;
@@ -258,6 +271,31 @@ body {
     flex-basis: 20px;
     margin-top: 3px;
     margin-left: 3px;
+}
+
+.msg-dropdown-menu {
+    position: absolute;
+    bottom: 100%;
+    font-size: 12px;
+    padding: 10px;
+    font-weight: 700;
+    background: white;
+    box-shadow: 0 2px 10px 0 gray;
+    z-index: 9999;
+    display: none;
+}
+
+.msg-dropdown-menu.active-menu {
+    display: block;
+}
+
+.msg-dropdown-menu li {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.msg-dropdown-menu li:first-child {
+    margin-bottom: 5px;
 }
 
 .emoji-menu,
