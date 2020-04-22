@@ -97,33 +97,6 @@ $(document).ready(function () {
     // Reset Dropdown
     dropDownBehaviour();
 
-    // Attivare dropdown menu per i messaggi farli scomparire al click di un altro bottone del dropdown
-    // var dropDown = $('.msg-dropdown-menu');
-    // var dropDownButton = $('.message i')
-    // dropDownButton.click(function() {
-    //     var activeDropDownMenu = $(this).parent().children(dropDown);
-    //     dropDown.not(activeDropDownMenu).removeClass('active-menu');
-    //     activeDropDownMenu.toggleClass('active-menu');
-    // });
-
-    // // Rendere funzionante pulsante "Cancella messaggio"
-    // var deleteMsg = $('.msg-dropdown-menu li:last-child');
-    // deleteMsg.click(function() {
-    //     $(this).parent().parent().remove();
-    // });
-
-    // // Far scomparire dropdown menu al click in qualsiasi altro punto della web app
-    // dropDownButton.click(function(event) {
-    //     event.stopPropagation();
-    // });
-
-    // $('#app').click(function(e) {
-    //     if(dropDownButton !== e.target && !dropDownButton.has(e.target).length) {
-    //         dropDown.removeClass('active-menu');
-    //     }
-    // });
-
-
     // FUNZIONI
     function dropDownBehaviour() {
         var dropDown = $('.msg-dropdown-menu');
