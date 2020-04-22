@@ -276,6 +276,7 @@ body {
 .msg-dropdown-menu {
     position: absolute;
     bottom: 100%;
+    width: 130px;
     font-size: 12px;
     padding: 10px;
     font-weight: 700;
@@ -316,3 +317,4 @@ body {
 .basic-bar #msg-input:focus {
     outline: 4px solid royalblue;
 }
+

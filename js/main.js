@@ -23,7 +23,7 @@ $(document).ready(function () {
     var chatButton = $('.send-msg .fas.fa-microphone');
     var templateTxt = $('.template-message .message .text');
     var templateTime = $('.template-message .message .time');
-    var templateMsg = $('.template-message li');
+    var templateMsg = $('.template-message .message');
 
     // Consentire selezione chat
     conversation.click(function() {
@@ -48,14 +48,20 @@ $(document).ready(function () {
     
     // Eventi e condizioni per far sì che il messaggio venga inviato e l'icona cambi o meno
     messageBar.keyup(function(event) {
+        dropDownBehaviour();
         if((event.which == 13) && (messageBar.val() !== null) && (messageBar.val().trim() !== '')) {
             newMessage();
+            // Reset Dropdown
+            dropDownBehaviour();
             changeChatButton = false;
-
+            
             // Messaggio bot
             botMsg = setTimeout(function(){
                 generateBotMsg();
+                // Reset Dropdown
+                dropDownBehaviour();
             }, 1000);
+            
         } else if ((event.which > 47 && event.which < 58) || // numeri
         (event.which > 64 && event.which < 91) || // lettere
         (event.which > 95 && event.which < 112) || // numeri del numpad
@@ -79,6 +85,8 @@ $(document).ready(function () {
             chatButton.removeClass('fa-microphone').addClass('fa-paper-plane');
             chatButton.removeClass('fa-paper-plane').addClass('fa-microphone');
         });
+        // Reset Dropdown
+        dropDownBehaviour();
     });
 
     // Rendere funzionante la barra di ricerca delle conversazioni
@@ -86,34 +94,64 @@ $(document).ready(function () {
         hideWhenSearch($(this).val());
     });
 
+    // Reset Dropdown
+    dropDownBehaviour();
+
     // Attivare dropdown menu per i messaggi farli scomparire al click di un altro bottone del dropdown
-    var dropDown = $('#messages-list .message .msg-dropdown-menu');
-    var dropDownButton = $('#messages-list .message i')
-    dropDownButton.click(function() {
-        var activeDropDownMenu = $(this).parent().children(dropDown);
-        dropDown.not(activeDropDownMenu).removeClass('active-menu');
-        activeDropDownMenu.toggleClass('active-menu');
-    });
+    // var dropDown = $('.msg-dropdown-menu');
+    // var dropDownButton = $('.message i')
+    // dropDownButton.click(function() {
+    //     var activeDropDownMenu = $(this).parent().children(dropDown);
+    //     dropDown.not(activeDropDownMenu).removeClass('active-menu');
+    //     activeDropDownMenu.toggleClass('active-menu');
+    // });
 
-    // Rendere funzionante pulsante "Cancella messaggio"
-    var deleteMsg = $('#messages-list .message .msg-dropdown-menu li:last-child');
-    deleteMsg.click(function() {
-        $(this).parent().parent().remove();
-    });
+    // // Rendere funzionante pulsante "Cancella messaggio"
+    // var deleteMsg = $('.msg-dropdown-menu li:last-child');
+    // deleteMsg.click(function() {
+    //     $(this).parent().parent().remove();
+    // });
 
-    // Far scomparire dropdown menu al click in qualsiasi altro punto della web app
-    dropDownButton.click(function(event) {
-        event.stopPropagation();
-    });
+    // // Far scomparire dropdown menu al click in qualsiasi altro punto della web app
+    // dropDownButton.click(function(event) {
+    //     event.stopPropagation();
+    // });
 
-    $('#app').click(function(e) {
-        if(dropDownButton !== e.target && !dropDownButton.has(e.target).length) {
-            dropDown.removeClass('active-menu');
-        }
-    });
+    // $('#app').click(function(e) {
+    //     if(dropDownButton !== e.target && !dropDownButton.has(e.target).length) {
+    //         dropDown.removeClass('active-menu');
+    //     }
+    // });
 
 
     // FUNZIONI
+    function dropDownBehaviour() {
+        var dropDown = $('.msg-dropdown-menu');
+        var dropDownButton = $('.message i');
+        dropDownButton.click(function() {
+            var activeDropDownMenu = $(this).parent().children(dropDown);
+            dropDown.not(activeDropDownMenu).removeClass('active-menu');
+            activeDropDownMenu.toggleClass('active-menu');
+        });
+
+        // Rendere funzionante pulsante "Cancella messaggio"
+        var deleteMsg = $('.msg-dropdown-menu li:last-child');
+        deleteMsg.click(function() {
+            $(this).parent().parent().remove();
+        });
+
+        // Far scomparire dropdown menu al click in qualsiasi altro punto della web app
+        dropDownButton.click(function(event) {
+            event.stopPropagation();
+        });
+
+        $('#app').click(function(e) {
+            if(dropDownButton !== e.target && !dropDownButton.has(e.target).length) {
+                dropDown.removeClass('active-menu');
+            }
+        });
+    }
+
     // Creo funzione per permettere di clonare il template, inserire il testo desiderato e aggiungerlo all'area messaggi
     function newMessage() {
         var getText = messageBar.val().trim();
